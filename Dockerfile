@@ -1,7 +1,7 @@
 FROM golang:latest
 MAINTAINER mstuparu
 
-COPY app.go /app/
+COPY src /app/
 
 WORKDIR /app
 
