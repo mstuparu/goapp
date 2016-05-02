@@ -1,0 +1,22 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - pip install ansible boto
+    - docker build -t mstuparu/goapp .
+
+test:
+  override:
+    - docker run -d -p 80:8484 mstuparu/goapp
+    - curl --retry 10 --retry-delay 5 -v http://localhost
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push mstuparu/goapp
+      - cd ansible && ansible-playbook deploy.yml
