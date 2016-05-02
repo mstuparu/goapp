@@ -1,0 +1,16 @@
+---
+- hosts: tag_Function_goapp;tag_Function_web
+  sudo: yes
+  roles:
+    - docker
+
+- hosts: tag_Function_goapp
+  sudo: yes
+  serial: 1
+  roles:
+    - goapp
+
+- hosts: tag_Function_web
+  sudo: yes
+  roles:
+    - nginx

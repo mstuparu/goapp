@@ -6,7 +6,7 @@ variable "aws_ssh_key_name" {
 }
 
 variable "aws_ami_id" {
-  default = "ami-ab368cd8"
+  default = "ami-a5368cd6"
 }
 
 variable "aws_ssh_pub_key" {}
@@ -26,7 +26,7 @@ resource "aws_key_pair" "goapp_pub_key" {
 # EC2 app instances
 resource "aws_instance" "ec2_app_instance" {
   ami           = "${var.aws_ami_id}"
-  instance_type = "t2.micro"
+  instance_type = "t1.micro"
   key_name      = "${var.aws_ssh_key_name}"
   count         = "2"
 
@@ -38,7 +38,7 @@ resource "aws_instance" "ec2_app_instance" {
 
 resource "aws_instance" "ec2_web_instance" {
   ami           = "${var.aws_ami_id}"
-  instance_type = "t2.micro"
+  instance_type = "t1.micro"
   key_name      = "${var.aws_ssh_key_name}"
 
   tags {

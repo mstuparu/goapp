@@ -1,0 +1,7 @@
+---
+- name: Start docker app instances
+  docker:
+    image: mstuparu/goapp
+    ports:
+      - "80:8484"
+    pull: always
