@@ -1,5 +1,9 @@
 ---
 - hosts: tag_Function_goapp;tag_Function_web
+  tasks:
+    - local_action: wait_for port=22 host="{{ ansible_ssh_host }}" search_regex=OpenSSH delay=10
+
+- hosts: tag_Function_goapp;tag_Function_web
   sudo: yes
   roles:
     - docker
