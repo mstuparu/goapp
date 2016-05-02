@@ -1,7 +1,9 @@
 ---
 - hosts: tag_Function_goapp;tag_Function_web
+  gather_facts: no
+  connection: local
   tasks:
-    - local_action: wait_for port=22 host="{{ ansible_ssh_host }}" search_regex=OpenSSH delay=10
+    - wait_for: port=22 host="{{ ansible_ssh_host }}" search_regex=OpenSSH timeout=500
 
 - hosts: tag_Function_goapp;tag_Function_web
   sudo: yes
