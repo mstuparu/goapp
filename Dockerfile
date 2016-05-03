@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:alpine
 MAINTAINER mstuparu
 
 COPY src /app/
