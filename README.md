@@ -41,4 +41,6 @@ Integration configured with Circle CI. Every branch is tested for each commit. P
 
  * Store terraform state file in remote S3/Atlas for colaboration
  * Extend tests to cover terraform and ansible files
+ * Gracefull restart of nginx container: docker kill -s HUP <container name>
+ * Wrap all useful commands with a Makefile
 
