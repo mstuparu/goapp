@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - sudo pip install ansible boto
+    - sudo pip install ansible==1.9.4 boto
     - docker build -t mstuparu/goapp .
 
 test:
