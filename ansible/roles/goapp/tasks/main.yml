@@ -5,3 +5,4 @@
     ports:
       - "80:8484"
     pull: always
+    state: reloaded
